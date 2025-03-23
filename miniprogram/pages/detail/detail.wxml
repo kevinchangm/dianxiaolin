@@ -1,0 +1,102 @@
+<view class="container">
+  <!-- 图片轮播 -->
+  <swiper class="swiper" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{3000}}" duration="{{500}}">
+    <swiper-item wx:for="{{post.images}}" wx:key="*this">
+      <image src="{{item}}" mode="aspectFill" class="swiper-image"></image>
+    </swiper-item>
+  </swiper>
+
+  <!-- 基本信息 -->
+  <view class="info-section">
+    <view class="title">{{post.title}}</view>
+    <view class="price">¥{{post.price}}/月</view>
+    <view class="tags">
+      <text class="tag" wx:for="{{post.tags}}" wx:key="*this">{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 位置信息 -->
+  <view class="location-section">
+    <view class="section-title">
+      <image src="/images/location.png" class="icon"></image>
+      <text>位置信息</text>
+    </view>
+    <view class="location-info">
+      <text>{{post.address}}</text>
+      <text class="distance">{{post.distance}}km</text>
+    </view>
+    <map class="map" latitude="{{post.latitude}}" longitude="{{post.longitude}}" markers="{{markers}}"></map>
+  </view>
+
+  <!-- 详细信息 -->
+  <view class="detail-section">
+    <view class="section-title">
+      <image src="/images/info.png" class="icon"></image>
+      <text>详细信息</text>
+    </view>
+    <view class="detail-content">
+      <view class="detail-item">
+        <text class="label">面积：</text>
+        <text class="value">{{post.area}}㎡</text>
+      </view>
+      <view class="detail-item">
+        <text class="label">楼层：</text>
+        <text class="value">{{post.floor}}</text>
+      </view>
+      <view class="detail-item">
+        <text class="label">装修：</text>
+        <text class="value">{{post.decoration}}</text>
+      </view>
+      <view class="detail-item">
+        <text class="label">适合：</text>
+        <text class="value">{{post.suitable}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 描述信息 -->
+  <view class="description-section">
+    <view class="section-title">
+      <image src="/images/description.png" class="icon"></image>
+      <text>详细描述</text>
+    </view>
+    <view class="description-content">{{post.description}}</view>
+  </view>
+
+  <!-- 联系方式 -->
+  <view class="contact-section">
+    <view class="section-title">
+      <image src="/images/contact.png" class="icon"></image>
+      <text>联系方式</text>
+    </view>
+    <view class="contact-info">
+      <view class="contact-item">
+        <text class="label">联系人：</text>
+        <text class="value">{{post.contact.name}}</text>
+      </view>
+      <view class="contact-item">
+        <text class="label">电话：</text>
+        <text class="value" bindtap="makePhoneCall">{{post.contact.phone}}</text>
+      </view>
+      <view class="contact-item">
+        <text class="label">微信：</text>
+        <text class="value" bindtap="copyWechat">{{post.contact.wechat}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar">
+    <view class="action-buttons">
+      <button class="action-btn collect" bindtap="toggleCollect">
+        <image src="/images/{{isCollected ? 'collected' : 'collect'}}.png"></image>
+        <text>{{isCollected ? '已收藏' : '收藏'}}</text>
+      </button>
+      <button class="action-btn share" bindtap="share">
+        <image src="/images/share.png"></image>
+        <text>分享</text>
+      </button>
+      <button class="primary-btn contact" bindtap="contact">立即联系</button>
+    </view>
+  </view>
+</view> 

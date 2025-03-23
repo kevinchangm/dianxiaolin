@@ -1,0 +1,80 @@
+.container {
+  padding: 20rpx;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.message-list {
+  width: 100%;
+}
+
+.message-item {
+  display: flex;
+  align-items: flex-start;
+  background: #fff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 10rpx;
+  position: relative;
+}
+
+.message-item.read {
+  opacity: 0.7;
+}
+
+.message-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.message-icon.system {
+  background: #1296db;
+}
+
+.message-icon.contact {
+  background: #ff6b6b;
+}
+
+.message-content {
+  flex: 1;
+}
+
+.message-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.message-text {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+
+.message-time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 32rpx;
+}
+
+.empty {
+  text-align: center;
+  padding: 100rpx 0;
+  color: #999;
+  font-size: 28rpx;
+} 

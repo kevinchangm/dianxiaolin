@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="message-list">
+    <view class="message-item {{item.isRead ? 'read' : ''}}" 
+          wx:for="{{messages}}" 
+          wx:key="id"
+          bindtap="markAsRead"
+          data-id="{{item.id}}">
+      <view class="message-icon {{item.type}}"></view>
+      <view class="message-content">
+        <view class="message-title">{{item.title}}</view>
+        <view class="message-text">{{item.content}}</view>
+        <view class="message-time">{{item.time}}</view>
+      </view>
+      <view class="delete-btn" catchtap="deleteMessage" data-id="{{item.id}}">×</view>
+    </view>
+  </view>
+
+  <view class="empty" wx:if="{{!loading && messages.length === 0}}">
+    <text>暂无消息</text>
+  </view>
+</view> 

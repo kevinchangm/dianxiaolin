@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="search-bar">
+    <input type="text" placeholder="搜索拼店信息" bindinput="onSearch"/>
+  </view>
+
+  <view class="post-list">
+    <view class="post-item" wx:for="{{posts}}" wx:key="id" bindtap="navigateToDetail" data-id="{{item.id}}">
+      <image class="post-image" src="{{item.images[0]}}" mode="aspectFill"></image>
+      <view class="post-content">
+        <view class="post-title">{{item.title}}</view>
+        <view class="post-description">{{item.description}}</view>
+        <view class="post-info">
+          <text class="location">{{item.location}}</text>
+          <text class="time">{{item.createTime}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="loading" wx:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+  <view class="no-more" wx:if="{{!hasMore && posts.length > 0}}">
+    <text>没有更多了</text>
+  </view>
+</view> 
